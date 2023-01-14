@@ -1,0 +1,13 @@
+.page-wrapper {
+    text-align: left;
+  
+    .page-wrapper__title {
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 80px;
+  
+      &:hover {
+        user-select: none;
+      }
+    }
+}
