@@ -27,7 +27,7 @@ export const Header = () => {
             </div>
             <div className="header__search">
                 <input type="text" value={searchValue} onChange={handleInputChange} className='header__input'/>
-                <Button className='header__btn header__btn--search' icon={<IconSearch color='black'/>}/>
+                <Button className='header__btn header__btn--search' onClick={handleInputChange} icon={<IconSearch color='black'/>}/>
             </div>
             <div className="header__navbar">
                 <Button className='btn__navbar' icon={<IconHeart color='black'/>}/>

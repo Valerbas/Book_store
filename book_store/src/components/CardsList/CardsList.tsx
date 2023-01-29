@@ -3,7 +3,7 @@ import './CardsList.scss'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { IStore } from '../../redux/types'
-import { setBooks, loadBooks, setSearchValue} from '../../redux/actionCreators/booksActionCreators'
+import { setBooks, loadBooks, setSearchValue, /* loadSearchedBooks */} from '../../redux/actionCreators/booksActionCreators'
 import { Card } from '../Card/Card'
 
 export const CardsList = () => {
@@ -19,6 +19,10 @@ export const CardsList = () => {
     useEffect(() => {
         dispatch(loadBooks({currentPage, rowsPerPage, searchValue}))
     }, [currentPage, rowsPerPage, searchValue])
+
+    /* useEffect(() => {
+      dispatch(loadSearchedBooks({currentPage, searchValue}))
+    }, [currentPage, searchValue]) */
 
     const handleChange = (e: any) => {
         dispatch(setSearchValue(e.target.value))
