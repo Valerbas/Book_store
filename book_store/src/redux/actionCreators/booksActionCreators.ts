@@ -61,23 +61,25 @@ const setBooksTotal = (total: number) => ({
     total,
 })
 
-const activeBookId = (id: number, navigate: any) => ({
+const activeBookId = (id: string) => ({
     type: SET_ACTIVE_BOOK_ID,
     id,
 })
 
-const activeBook = (data: IBook) => ({
+/* const activeBook = (data: IBook) => ({
     type: SET_ACTIVE_BOOK,
     data,
-})
+}) */
 
 function* fetchSelectBook (payload: any) {
-    localStorage.getItem('book') && localStorage.removeItem('book')
+    /* localStorage.getItem('book') && localStorage.removeItem('book') */
     const { id } = payload
     const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${id}`)
     const data: IBook = yield response.json()
     localStorage.setItem('book', JSON.stringify(data))
-    yield put(activeBook(data))
+    console.log(data);
+    
+    /* yield put(activeBook(data)) */
 }
 
 function* watcherBooks() {
@@ -88,7 +90,7 @@ function* watcherBooks() {
 export {
     setBooks,
     loadBooks,
-    activeBook,
+    /* activeBook, */
     activeBookId,
     watcherBooks,
     setSearchValue,

@@ -1,4 +1,5 @@
 export interface IBook {
+    error?: string
     title: string
     subtitle: string
     isbn13: string
@@ -23,8 +24,8 @@ export interface IBookStore {
     books: IBook[],
     searchValue: string,
     countTotal: number,
-    activeBookId: number,
-    activeBook: IBook[],
+    activeBookId?: number,
+    /* activeBook: IBook, */
 }
 
 export interface ISettingsStore {

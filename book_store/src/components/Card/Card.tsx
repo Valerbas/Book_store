@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Card.scss"
 
 import { IBook } from '../../redux/types'
-// данный тип переписать в стор и удалить 
+
 export interface ICard extends IBook {
 }
 
 export const Card = ({title, subtitle, isbn13, price, image, url}: ICard) => {
   return (
     <div className='card'>
-        <a className='card__link' href={url}>
+        <Link className='card__link' to={`book/${isbn13}`}>
             <div className="card__main">
                 <div className="card__image">
                     <img src={image} alt={title} />
@@ -31,7 +32,7 @@ export const Card = ({title, subtitle, isbn13, price, image, url}: ICard) => {
                     5/5
                 </div>
             </div>
-        </a>
+        </Link>
     </div>
   )
 }

@@ -7,7 +7,7 @@ const initialState = {
     searchValue: '',
     countTotal: 0,
     activeBookId: 0,
-    activeBook: [], 
+    /* activeBook: {}, */ 
 }
 
 
@@ -41,13 +41,13 @@ const booksReducers = (state: IBookStore = initialState, action: any ) => {
                 activeBookId: id,
             })
         }
-        case SET_ACTIVE_BOOK: {
+        /* case SET_ACTIVE_BOOK: {
             const { data } = action
             return ({
                 ...state,
                 activeBook: [ data],
             })
-        }
+        } */
         default: return state;
     }
 }

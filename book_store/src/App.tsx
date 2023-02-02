@@ -9,6 +9,7 @@ import { IconSearch } from './components/Icon/IconSearch';
 import { IconUser } from './components/Icon/IconUser';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AllCards } from './components/pages/AllCards';
+import { SelectedBook } from './components/pages/SelectedBook';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/'>
             <Route index element={<AllCards/>}/>
+            <Route path='book/:isbn13' element={<SelectedBook/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
