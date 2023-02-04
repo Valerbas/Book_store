@@ -10,6 +10,7 @@ import { IStore } from '../../redux/types'
 import { useSelector, useDispatch,  } from 'react-redux'
 
 import "./Header.scss"
+import { Link, NavLink } from 'react-router-dom'
 
 export const Header = () => {
     const searchValue = useSelector((state: IStore) => state.books.searchValue)
@@ -32,7 +33,11 @@ export const Header = () => {
             <div className="header__navbar">
                 <Button className='btn__navbar' icon={<IconHeart color='black'/>}/>
                 <Button className='btn__navbar' icon={<IconBasket color='black'/>}/>
-                <Button className='btn__navbar' icon={<IconUser color='black'/>}/>
+                <Button className='btn__navbar'>
+                    <Link style={{textDecoration: 'none'}} to={'/sign_in'}>
+                            <IconUser color='black'/>
+                    </Link>
+                </Button>
             </div>
         </div>
     </header>

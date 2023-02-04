@@ -7,6 +7,8 @@ export interface ButtonProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     text?: string
     icon?: ReactElement
+    children?: any
+    link?: string
 }
 
 export const Button = ({
@@ -15,6 +17,8 @@ export const Button = ({
     onClick,
     text,
     icon,
+    children,
+    link,
     }: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement> ) => {
   return (
     <button
@@ -22,6 +26,8 @@ export const Button = ({
     disabled={disabled}
     onClick={onClick}
     >
+        {link}
+        {children}
         {text}
         {icon}
     </button>

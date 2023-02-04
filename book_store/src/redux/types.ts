@@ -34,7 +34,24 @@ export interface ISettingsStore {
     rowsPerPage: number,
 }
 
+export interface IUser {
+    id?: number,
+    username?: string,
+    password: string,
+    email: string,
+}
+
+export interface IUserStore {
+    user: IUser,
+}
+
 export interface IStore {
     books: IBookStore,
     settings: ISettingsStore,
+    users: IUserStore,
+}
+
+export interface jwtUserStore {
+    access: string,
+    refresh: string,
 }
