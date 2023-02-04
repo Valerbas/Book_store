@@ -1,4 +1,4 @@
-import { LOAD_BOOKS, SET_BOOKS, SET_SEARCH_VALUE, LOAD_SEARCHED_BOOKS, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID } from "../actionTypes/booksActionTypes";
+import { LOAD_BOOKS, SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID, ADD_FAVORITE, REMOVE_FAVORITE } from "../actionTypes/booksActionTypes";
 import {takeEvery, put, take} from "redux-saga/effects"
 import { IBook } from "../types";
 import { SET_COUNT_TOTAL } from "../actionTypes/settingsActionTypes"
@@ -36,20 +36,15 @@ const setBooks = (books: IBook[]) => ({
     books,
 });
 
-/* function* fetchSearchValue(action: any) {
-    const { payload } = action
-    const {currentPage, searchValue} = payload
-    const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}/${currentPage}`)
-    const data: IBook[] = yield response.json()
-    const books = data
+const addFavorite = (id: string) => ({
+    type: ADD_FAVORITE,
+    id,
+})
 
-    yield put(setBooks(books))
-} */
-
-/* const loadSearchedBooks = (payload: {currentPage: number, searchValue: string}) => ({
-    type: LOAD_SEARCHED_BOOKS,
-    payload,
-}) */
+const removeFavorite = (id: string) => ({
+    type: REMOVE_FAVORITE,
+    id,
+})
 
 const setSearchValue = (value: string) => ({
     type: SET_SEARCH_VALUE,
@@ -66,10 +61,10 @@ const activeBookId = (id: string) => ({
     id,
 })
 
-/* const activeBook = (data: IBook) => ({
+const activeBook = (data: IBook) => ({
     type: SET_ACTIVE_BOOK,
     data,
-}) */
+})
 
 function* fetchSelectBook (payload: any) {
     /* localStorage.getItem('book') && localStorage.removeItem('book') */
@@ -79,7 +74,7 @@ function* fetchSelectBook (payload: any) {
     localStorage.setItem('book', JSON.stringify(data))
     console.log(data);
     
-    /* yield put(activeBook(data)) */
+    yield put(activeBook(data))
 }
 
 function* watcherBooks() {
@@ -90,8 +85,10 @@ function* watcherBooks() {
 export {
     setBooks,
     loadBooks,
-    /* activeBook, */
+    activeBook,
     activeBookId,
     watcherBooks,
     setSearchValue,
+    addFavorite,
+    removeFavorite,
 }

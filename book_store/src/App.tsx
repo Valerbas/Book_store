@@ -11,6 +11,7 @@ import { ResetPass } from './components/pages/ResetPass';
 import { NewPass } from './components/pages/NewPass';
 import { Success } from './components/pages/Success';
 import { Activation } from './components/Activation/Activation';
+import { FavoriteBooks } from './components/pages/FavoriteBooks';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/'>
             <Route index element={<AllCards/>}/>
             <Route path='book/:isbn13' element={<SelectedBook/>}/>
+            <Route path='favorite' element={<FavoriteBooks/>}/>
             <Route path='sign_in' element={<SignIn/>} />
             <Route path='sign_up' element={<SignUp/>} />
             <Route path='reset_pass' element={<ResetPass/>} />

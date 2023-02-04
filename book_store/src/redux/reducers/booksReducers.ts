@@ -1,4 +1,4 @@
-import { SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID } from "../actionTypes/booksActionTypes";
+import { SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID, ADD_FAVORITE, REMOVE_FAVORITE } from "../actionTypes/booksActionTypes";
 import { SET_COUNT_TOTAL } from "../actionTypes/settingsActionTypes";
 import { IBookStore } from "../types";
 
@@ -7,7 +7,8 @@ const initialState = {
     searchValue: '',
     countTotal: 0,
     activeBookId: 0,
-    /* activeBook: {}, */ 
+    activeBook: [],
+    favorites: [],
 }
 
 
@@ -41,13 +42,27 @@ const booksReducers = (state: IBookStore = initialState, action: any ) => {
                 activeBookId: id,
             })
         }
-        /* case SET_ACTIVE_BOOK: {
+        case SET_ACTIVE_BOOK: {
             const { data } = action
             return ({
                 ...state,
                 activeBook: [ data],
             })
-        } */
+        }
+        case ADD_FAVORITE: {
+            const { id } = action;
+            return ({
+                ...state,
+                favorites: [...state.favorites, id]
+            })
+        }
+        case REMOVE_FAVORITE: {
+            const { id } = action;
+            return ({
+                ...state,
+                favorites: state.favorites.filter((el) => el !== id)
+            })
+        }
         default: return state;
     }
 }

@@ -42,13 +42,13 @@ export const Header = () => {
                 <Button className='header__btn header__btn--search' onClick={handleInputChange} icon={<IconSearch color='black'/>}/>
             </div>
             <div className="header__navbar">
-                <Button className='btn__navbar' icon={<IconHeart color='black'/>}/>
+                <Button className='btn__navbar'>
+                    <Link style={{textDecoration: 'none'}} to={'/favorite'}>
+                        <IconHeart color='black'/>
+                    </Link>
+                </Button>
                 <Button className='btn__navbar' icon={<IconBasket color='black'/>}/>
                 <div className='navbar-item__user'>
-                    {/* <Link style={{textDecoration: 'none'}} to={'/sign_in'}>
-                            <IconUser color='black'/>
-                    </Link> */}
-                    {/* <UserUnlogger/> */}
                     {userName 
                         ? <UserUnlogger/>
                             : <Button className='btn__navbar'>

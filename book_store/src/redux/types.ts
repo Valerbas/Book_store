@@ -20,12 +20,12 @@ export interface IBook {
 
 
 export interface IBookStore {
-    oneBook?: IBook,
     books: IBook[],
     searchValue: string,
     countTotal: number,
     activeBookId?: number,
-    /* activeBook: IBook, */
+    activeBook: IBook[],
+    favorites: string[],
 }
 
 export interface ISettingsStore {

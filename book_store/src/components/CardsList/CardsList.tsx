@@ -18,7 +18,7 @@ export const CardsList = () => {
 
     useEffect(() => {
         dispatch(loadBooks({currentPage, rowsPerPage, searchValue}))
-    }, [currentPage, rowsPerPage, searchValue])
+    }, [currentPage, rowsPerPage, searchValue,dispatch])
 
     /* useEffect(() => {
       dispatch(loadSearchedBooks({currentPage, searchValue}))
@@ -30,7 +30,7 @@ export const CardsList = () => {
   return (
     <>
     <div className='cards-list__body'>
-        {data.map((card, i) => <Card key={i} title={card.title} isbn13={card.isbn13} subtitle={card.subtitle} price={card.price} url={card.url} image={card.image}/>)}
+        {data?.map((card) => <Card key={card?.isbn13} title={card?.title} isbn13={card?.isbn13} subtitle={card?.subtitle} price={card?.price} url={card?.url} image={card?.image}/>)}
     </div>
     </>
   )
