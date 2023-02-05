@@ -1,0 +1,40 @@
+.pagination {
+    .pagination__body {
+      padding: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      .pagination__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+  
+      .pagination__integers {
+        .pagination__page {
+          font-size: 14px;
+          margin: 30px;
+          padding: 8px 5px;
+          background-color: white;
+          cursor: pointer;
+          transition: all .3s;
+        }
+  
+        .pagination__page--active {
+          font-weight: 700;
+          background-color: grey;
+        }
+      }
+    }
+  
+    .pagination__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+}

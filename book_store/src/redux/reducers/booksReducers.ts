@@ -17,10 +17,10 @@ const initialState = {
 const booksReducers = (state: IBookStore = initialState, action: any ) => {
     switch(action.type){
         case SET_COUNT_TOTAL: {
-            const { total } = action;
+            const { count } = action
             return ({
                 ...state,
-                countTotal: total
+                countTotal: +count,
             })
         }
         case SET_BOOKS: {

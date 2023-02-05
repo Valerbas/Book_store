@@ -2,26 +2,29 @@ import { LOAD_BOOKS, SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BO
 import {takeEvery, put, take} from "redux-saga/effects"
 import { IBook } from "../types";
 import { SET_COUNT_TOTAL } from "../actionTypes/settingsActionTypes"
+import { setCurrentPage } from "./settingsActionCreators";
 
 
 function* fetchLoadBooks (action: any) {
     const { payload } = action
-    const {searchValue} = payload
+    const {searchValue, currentPage} = payload
     if (!searchValue) {
         const response: Response = yield fetch('https://api.itbook.store/1.0/new')
-        const data: {total: number, books: IBook[]} = yield response.json()
+        const data: {total: string, books: IBook[]} = yield response.json()
         const {books, total} = data
     
-        yield put(setBooksTotal(total))
+        yield put(setCountTotal(total))
         yield put(setBooks(books))
+        yield put(setCurrentPage(currentPage))
     }
     if (searchValue) {
         const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}`)
-        const data: {total: number, books: IBook[]} = yield response.json()
+        const data: {total: string, books: IBook[]} = yield response.json()
         const {books, total} = data
     
-        yield put(setBooksTotal(total))
+        yield put(setCountTotal(total))
         yield put(setBooks(books))
+        yield put(setCurrentPage(currentPage))
     }
 } 
 
@@ -35,6 +38,7 @@ const setBooks = (books: IBook[]) => ({
     type: SET_BOOKS,
     books,
 });
+
 
 const addFavorite = (id: string) => ({
     type: ADD_FAVORITE,
@@ -61,9 +65,9 @@ const setSearchValue = (value: string) => ({
     value,
 })
 
-const setBooksTotal = (total: number) => ({
+export const setCountTotal = (count: string) => ({
     type: SET_COUNT_TOTAL,
-    total,
+    count,
 })
 
 const activeBookId = (id: string) => ({

@@ -42,7 +42,11 @@ export const CartList = () => {
                         ? <span>0</span>
                             : <span>{`${cartPrice.reduce((acc, current) => acc + current, 0)}`}</span>} $ */}
                 </div>
-                <div className="cart-list__total-books"></div>
+                <div className="cart-list__total-books">
+                    {!(cart.length) 
+                        ? <span>0</span>
+                            : <span>{cart.length}</span>} pc
+                </div>
             </div>
     </div>
     </>

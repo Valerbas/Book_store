@@ -5,7 +5,7 @@ import { TABS } from '../../constants';
 const initial_state = {
     activeTab: TABS.description,
     currentPage: 1,
-    rowsPerPage: 15,
+    rowsPerPage: 9,
 }
 
 const settingsReducer = (state = initial_state, action: any) => {
