@@ -47,7 +47,11 @@ export const Header = () => {
                         <IconHeart color='black'/>
                     </Link>
                 </Button>
-                <Button className='btn__navbar' icon={<IconBasket color='black'/>}/>
+                <Button className='btn__navbar'>
+                    <Link style={{textDecoration: 'none'}} to={'/order'}>
+                        <IconBasket color='black'/>
+                    </Link> 
+                </Button>
                 <div className='navbar-item__user'>
                     {userName 
                         ? <UserUnlogger/>

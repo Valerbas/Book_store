@@ -7,17 +7,22 @@ import { setActiveTab } from '../../redux/actionCreators/settingsActionCreators'
 import { IStore } from '../../redux/types'
 import { Button } from '../Button/Button'
 
+
 import './Tabs.scss'
 
+interface ITabsProps {
+    desc?: string
+    authors?: string
+    url?: string
+}
 
-
-export const Tabs = () => {
+export const Tabs = ({desc, url, authors}: ITabsProps) => {
     const dispatch = useDispatch();
     const activeTab = useSelector((state: IStore) => state.settings.activeTab); 
     /* const book1 = useSelector((state: IStore) => state.books.activeBook) */
     //@ts-ignore
-    const book2 = JSON.parse(localStorage.getItem('book'))
-    const data =  book2
+    /* const book2 = JSON.parse(localStorage.getItem('book'))
+    const data =  book2 */
     return (
         <div className={`tabs`}>
                 <div className='tabs__list'>
@@ -28,7 +33,7 @@ export const Tabs = () => {
                 <div className='tabs__info'>
                     <div className='tabs__text'>
                         {
-                            activeTab.includes('Description') ? data.desc : activeTab.includes('Authors') ? data.authors : (<a href={data.url}>Let's checkout reviews on official site.</a>)
+                            activeTab.includes('Description') ? <p>{desc}</p> : activeTab.includes('Authors') ? <p>{authors}</p> : (<a href={url}>Let's checkout reviews on official site.</a>)
                         }
                     </div>
                 </div>

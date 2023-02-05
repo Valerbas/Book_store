@@ -17,8 +17,6 @@ export interface IBook {
     language?: string
 }
 
-
-
 export interface IBookStore {
     books: IBook[],
     searchValue: string,
@@ -26,6 +24,8 @@ export interface IBookStore {
     activeBookId?: number,
     activeBook: IBook[],
     favorites: string[],
+    cart: string[],
+    cartPrice: number[]
 }
 
 export interface ISettingsStore {

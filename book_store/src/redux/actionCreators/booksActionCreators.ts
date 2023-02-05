@@ -1,4 +1,4 @@
-import { LOAD_BOOKS, SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID, ADD_FAVORITE, REMOVE_FAVORITE } from "../actionTypes/booksActionTypes";
+import { LOAD_BOOKS, SET_BOOKS, SET_SEARCH_VALUE, SET_ACTIVE_BOOK, SET_ACTIVE_BOOK_ID, ADD_FAVORITE, REMOVE_FAVORITE, ADD_CARTITEM, REMOVE_CARTITEM, CALC_ONE_BOOK_PRICE } from "../actionTypes/booksActionTypes";
 import {takeEvery, put, take} from "redux-saga/effects"
 import { IBook } from "../types";
 import { SET_COUNT_TOTAL } from "../actionTypes/settingsActionTypes"
@@ -6,7 +6,7 @@ import { SET_COUNT_TOTAL } from "../actionTypes/settingsActionTypes"
 
 function* fetchLoadBooks (action: any) {
     const { payload } = action
-    const {rowsPerPage, currentPage, searchValue} = payload
+    const {searchValue} = payload
     if (!searchValue) {
         const response: Response = yield fetch('https://api.itbook.store/1.0/new')
         const data: {total: number, books: IBook[]} = yield response.json()
@@ -16,7 +16,7 @@ function* fetchLoadBooks (action: any) {
         yield put(setBooks(books))
     }
     if (searchValue) {
-        const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}/${currentPage}`)
+        const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}`)
         const data: {total: number, books: IBook[]} = yield response.json()
         const {books, total} = data
     
@@ -46,6 +46,16 @@ const removeFavorite = (id: string) => ({
     id,
 })
 
+const addCartItem = (id: string) => ({
+    type: ADD_CARTITEM,
+    id,
+})
+
+const removeCartItem = (id: string) => ({
+    type: REMOVE_CARTITEM,
+    id,
+})
+
 const setSearchValue = (value: string) => ({
     type: SET_SEARCH_VALUE,
     value,
@@ -64,6 +74,11 @@ const activeBookId = (id: string) => ({
 const activeBook = (data: IBook) => ({
     type: SET_ACTIVE_BOOK,
     data,
+})
+
+const calcOneBookPrice = (oneBookPrice: number) => ({
+    type: CALC_ONE_BOOK_PRICE,
+    oneBookPrice,
 })
 
 function* fetchSelectBook (payload: any) {
@@ -91,4 +106,7 @@ export {
     setSearchValue,
     addFavorite,
     removeFavorite,
+    addCartItem,
+    removeCartItem,
+    calcOneBookPrice
 }
