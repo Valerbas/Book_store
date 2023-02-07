@@ -1,11 +1,11 @@
 .header {
     position: sticky;
-    border-bottom: 1px solid #8D8E97;
     width: 100%;
     background-color: white;
     .header__body {
         display: flex;
         justify-content: space-between;
+        border-bottom: 1px solid #8D8E97;
         height: 80px;
         align-items: center;
         .header__logo {
@@ -13,12 +13,16 @@
             font-size: 30px;
             color: black;
             text-decoration: none;
+            .header__link {
+                text-decoration: none;
+                color: black;
+            }
         }
         .header__search {
             display: flex;
             width: 40%;
             .header__input {
-                border: 1px solid #8D8E97;
+                border: 1px solid #bfbfc0;
                 border-radius: 10px 0px 0px 10px;
                 border-right: none;
                 width: 85%;
@@ -28,7 +32,7 @@
                 outline: 2px solid #8D8E97;
             }
             .header__btn--search {
-                border: 1px solid #8D8E97;
+                border: 1px solid #bfbfc0;
                 border-radius: 0px 10px 10px 0px;
                 border-left: none;
                 background-color: transparent;

@@ -7,6 +7,7 @@ import { IconHeart } from '../Icon/IconHeart'
 import { IconMore } from '../Icon/IconMore'
 import { IconTwitter } from '../Icon/IconTwitter'
 import { useDispatch, useSelector } from 'react-redux'
+import Accordion from 'react-bootstrap/Accordion';
 
 
 import './FullPost.scss'
@@ -79,6 +80,21 @@ export const FullPost = ({book}: IProps) => {
                         <div className="item__title">Pages</div>
                         <div className="item__info">{book.pages}</div>
                       </li>
+                      <Accordion defaultActiveKey="0" bsPrefix='accordion' className='accord'>
+                        <Accordion.Item eventKey="1">
+                          <Accordion.Header>More details</Accordion.Header>
+                          <Accordion.Body>
+                            <li>
+                              <div className="item__title">isbn10</div>
+                              <div className="item__info">{book.isbn10}</div>
+                            </li>
+                            <li>
+                              <div className="item__title">isbn13</div>
+                              <div className="item__info">{book.isbn13}</div>
+                            </li>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
                     </ul>
                     <div className="book__specs-footer">
                       <Button className='btn_subscribe' text={(cart.includes(book.isbn13) === false)

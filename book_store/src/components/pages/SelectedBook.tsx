@@ -6,6 +6,7 @@ import { activeBookId } from '../../redux/actionCreators/booksActionCreators'
 import { FullPost } from '../FullPost/FullPost'
 import { IconLeftArrow } from '../Icon/IconLeftArrow'
 import { IStore } from '../../redux/types'
+import { Subscribe } from '../Subscribe/Subscribe'
 
 export const SelectedBook = () => {
   const dispatch = useDispatch()
@@ -21,8 +22,8 @@ export const SelectedBook = () => {
         <div className="selected-book__main">
         <Link className='select-book__link' to={'/'}><IconLeftArrow/></Link>
         {book &&  <FullPost book={book[0]}/>}
-       
         </div>
+        <Subscribe/>
       </div>
     </div>
   )

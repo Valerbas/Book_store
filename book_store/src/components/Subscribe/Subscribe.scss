@@ -1,0 +1,32 @@
+.subscribe {
+    padding: 40px 50px 50px;
+    background-color: rgb(235, 233, 233);
+    .subscribe__info {
+        padding-bottom: 20px;
+        .subscribe__title{
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        .subscribe__text{
+            font-size: 16px;
+            font-weight: lighter;
+            color: #8D8E97;
+        }
+    }
+    .subscribe__form{
+        .subscribe__input {
+            border: none;
+            border-right: none;
+            width: 86%;
+            padding: 15px;
+        }
+        .subscribe__input:focus {
+            outline: 2px solid #8D8E97;
+        }
+    }
+    .subscribe__letter{
+        font-size: 35px;
+        font-style: italic;
+    }
+}

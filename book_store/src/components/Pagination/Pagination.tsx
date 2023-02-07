@@ -58,7 +58,6 @@ export const Pagination = () => {
                     <Button className='pagination__button' icon={<IconLeftArrow/>} disabled={isPrevDisabled} style={{opacity: isPrevDisabled ? '0.5' : ''}} onClick={handleClickPrevPage}/>
                 </div>
                 <div className="pagination__value">
-                {/* {totalPagesAmount.map((page, i) => (<span key={page} className={`pagination__page ${i + 1 === currentPage ? 'pagination__page--active' : ''}`} onClick={() => handleClickCurrentPage(i + 1)}>{page}</span>))} */} 
                 {currentPage}
                 </div>
                 <div className="pagination__nav">

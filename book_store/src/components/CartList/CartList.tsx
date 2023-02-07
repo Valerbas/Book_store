@@ -5,17 +5,18 @@ import { IStore } from '../../redux/types'
 
 
 import './CartList.scss'
+import { useNavigate } from 'react-router-dom'
 
 export const CartList = () => {
     const cart = useSelector((state: IStore) => state.books.cart)
     const books = useSelector((state: IStore) => state.books.books)
-    /* const cartPrice = useSelector((state: IStore) => state.books.cartPrice) */
+    const userName = useSelector((state: IStore) => state.users.user)
 
-    const [total, setTotal] = useState(0);
+    const navigate = useNavigate();
 
-    
     const cartData = books.filter(({ isbn13 }) => cart.includes(isbn13))
-
+    const [total, setTotal] = useState(0);
+    
     useEffect(() => {
         let totalPrice = 0
         cartData.forEach((book) => {
@@ -23,6 +24,12 @@ export const CartList = () => {
         })
         setTotal(totalPrice);
     }, [cartData])
+
+    useEffect(() => {
+        if (!userName) {  
+          navigate('../sign_in')
+        }
+    }, [userName, navigate])
     
   return (
     <>
@@ -38,9 +45,6 @@ export const CartList = () => {
                     {!(cart.length) 
                         ? <span>0</span>
                             : <span>{total.toFixed(2)}</span>} $
-                    {/* {!(cartPrice.length) 
-                        ? <span>0</span>
-                            : <span>{`${cartPrice.reduce((acc, current) => acc + current, 0)}`}</span>} $ */}
                 </div>
                 <div className="cart-list__total-books">
                     {!(cart.length) 

@@ -11,6 +11,7 @@ import { useSelector, useDispatch,  } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { logOut } from '../../redux/actionCreators/userActionCreators'
 
+
 import "./Header.scss"
 import { UserUnlogger } from '../UserUnlogger/UserUnlogger'
 
@@ -33,34 +34,36 @@ export const Header = () => {
     }
   return (
     <header className='header'>
-        <div className="header__body">
-            <div className="header__logo">
-                <a href="#">BookStore</a>
-            </div>
-            <div className="header__search">
-                <input type="text" value={searchValue} onChange={handleInputChange} className='header__input'/>
-                <Button className='header__btn header__btn--search' onClick={handleInputChange} icon={<IconSearch color='black'/>}/>
-            </div>
-            <div className="header__navbar">
-                <Button className='btn__navbar'>
-                    <Link style={{textDecoration: 'none'}} to={'/favorite'}>
-                        <IconHeart color='black'/>
-                    </Link>
-                </Button>
-                <Button className='btn__navbar'>
-                    <Link style={{textDecoration: 'none'}} to={'/order'}>
-                        <IconBasket color='black'/>
-                    </Link> 
-                </Button>
-                <div className='navbar-item__user'>
-                    {userName 
-                        ? <UserUnlogger/>
-                            : <Button className='btn__navbar'>
-                                <Link style={{textDecoration: 'none'}} to={'/sign_in'}>
-                                    <IconUser color='black'/>
-                                </Link>
-                            </Button>
-                    }
+        <div className="wrapper">
+            <div className="header__body">
+                <div className="header__logo">
+                    <Link className='header__link' to='/'>BOOKSTORE</Link>
+                </div>
+                <div className="header__search">
+                    <input type="text" value={searchValue} onChange={handleInputChange} className='header__input'/>
+                    <Button className='header__btn header__btn--search' onClick={handleInputChange} icon={<IconSearch color='black'/>}/>
+                </div>
+                <div className="header__navbar">
+                    <Button className='btn__navbar'>
+                        <Link style={{textDecoration: 'none'}} to={'/favorite'}>
+                            <IconHeart color='black'/>
+                        </Link>
+                    </Button>
+                    <Button className='btn__navbar'>
+                        <Link style={{textDecoration: 'none'}} to={'/order'}>
+                            <IconBasket color='black'/>
+                        </Link> 
+                    </Button>
+                    <div className='navbar-item__user'>
+                        {userName 
+                            ? <UserUnlogger/>
+                                : <Button className='btn__navbar'>
+                                    <Link style={{textDecoration: 'none'}} to={'/sign_in'}>
+                                        <IconUser color='black'/>
+                                    </Link>
+                                </Button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

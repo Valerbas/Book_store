@@ -13,6 +13,7 @@ import { Success } from './components/pages/Success';
 import { Activation } from './components/Activation/Activation';
 import { FavoriteBooks } from './components/pages/FavoriteBooks';
 import { Cart } from './components/pages/Cart';
+import { Footer } from './components/Footer/Footer';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             </Route> 
           </Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
       
       
