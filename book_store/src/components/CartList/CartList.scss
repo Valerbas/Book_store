@@ -1,0 +1,58 @@
+.cart__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .cart-list__body{
+        width: 60%;
+    }
+    .cart-list__order{
+        width: 25%;
+        position: sticky;
+        top: 50px;
+        max-height: 200px ;
+        border: 5px solid #8D8E97;
+        border-radius: 20px;
+        .cart-list__title{
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #212529;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .cart-list__info{
+            width: 100%;
+            .cart-list__total-price{
+                font-size: 20px;
+                line-height: 20px;
+                margin-bottom: 20px;
+                color: #8D8E97;
+                text-align: center;
+                span{
+                    font-size: 24px;
+                    line-height: 24px;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                    color: #212529;
+                    text-transform: uppercase;
+                }
+            }
+            .cart-list__total-books{
+                font-size: 20px;
+                line-height: 20px;
+                margin-bottom: 20px;
+                color: #8D8E97;
+                text-align: center;
+                span{
+                    font-size: 24px;
+                    line-height: 24px;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                    color: #212529;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

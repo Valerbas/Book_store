@@ -12,6 +12,7 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import './FullPost.scss'
 import { activeBookId, addCartItem, addFavorite, removeCartItem, removeFavorite } from '../../redux/actionCreators/booksActionCreators'
+import { Rating } from '../Rating/Rating'
 
 
 
@@ -51,13 +52,13 @@ export const FullPost = ({book}: IProps) => {
               <div className="book__title">{book.title}</div>
               <div className="book__info">
                   <div className="book__image">
-                    <Button className='btn__like' icon={<IconHeart/>} onClick={() => handleToggleFavorite(book.isbn13)}/>
+                    <Button className='btn__like' icon={<IconHeart color='#bfbfc0'/>} onClick={() => handleToggleFavorite(book.isbn13)}/>
                     <img src={book.image} alt={book.title} />
                   </div>
                   <div className="book__specs">
                     <div className="book__specs-header">
                       <div className="book__price">{book.price}</div>
-                      <div className="book__rating">{book.rating}</div>
+                      <Rating/>
                     </div>
                     <ul className="book__specs-list">
                       <li>
@@ -72,21 +73,17 @@ export const FullPost = ({book}: IProps) => {
                         <div className="item__title">Language</div>
                         <div className="item__info">{book.language}</div>
                       </li>
-                      <li>
-                        <div className="item__title">Year</div>
-                        <div className="item__info">{book.year}</div>
-                      </li>
-                      <li>
-                        <div className="item__title">Pages</div>
-                        <div className="item__info">{book.pages}</div>
-                      </li>
                       <Accordion defaultActiveKey="0" bsPrefix='accordion' className='accord'>
                         <Accordion.Item eventKey="1">
                           <Accordion.Header>More details</Accordion.Header>
                           <Accordion.Body>
                             <li>
-                              <div className="item__title">isbn10</div>
-                              <div className="item__info">{book.isbn10}</div>
+                              <div className="item__title">Year</div>
+                              <div className="item__info">{book.year}</div>
+                            </li>
+                            <li>
+                              <div className="item__title">Pages</div>
+                              <div className="item__info">{book.pages}</div>
                             </li>
                             <li>
                               <div className="item__title">isbn13</div>
@@ -97,11 +94,11 @@ export const FullPost = ({book}: IProps) => {
                       </Accordion>
                     </ul>
                     <div className="book__specs-footer">
-                      <Button className='btn_subscribe' text={(cart.includes(book.isbn13) === false)
+                      <Button className='btn__cart btn__cart--black' text={(cart.includes(book.isbn13) === false)
                         ? 'Add to cart'
                           : 'Remove from cart'}
                         onClick={() => handleToggleCart(book.isbn13)}/>
-                      <Button className='btn_preview' text='Preview book'/>
+                      <Button className='btn__cart btn__cart--white' text='Preview book'/>
                     </div>
                   </div>
               </div>
@@ -110,9 +107,9 @@ export const FullPost = ({book}: IProps) => {
               <Tabs desc={book.desc} authors={book.authors} url={book.url}/>
           </div>
           <div className="book__footer">
-            <Button className='btn__navbar' icon={<IconFacebook/>}/>
-            <Button className='btn__navbar' icon={<IconTwitter/>}/>
-            <Button className='btn__navbar' icon={<IconMore/>}/>
+            <Button className='btn__social' icon={<IconFacebook color='#8D8E97'/>}/>
+            <Button className='btn__social' icon={<IconTwitter color='#8D8E97'/>}/>
+            <Button className='btn__social' icon={<IconMore/>}/>
           </div>
       </div>
     </div>  }

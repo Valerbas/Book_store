@@ -11,11 +11,10 @@
         .header__logo {
             text-transform: uppercase;
             font-size: 30px;
-            color: black;
-            text-decoration: none;
+            font-weight: bold;
             .header__link {
                 text-decoration: none;
-                color: black;
+                color: #212529;
             }
         }
         .header__search {
@@ -40,9 +39,13 @@
             }
         }
         .header__navbar {
-            width: 112px;
+            width: 150px;
+            height: 100%;
             display: flex;
             justify-content: space-between;
+            .navbar-item__user{
+                display: flex;
+            }
         }
     }
 }

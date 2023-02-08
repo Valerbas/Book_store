@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/actionCreators/userActionCreators';
 import { IStore } from '../../redux/types';
+import './UserUnlogger.scss'
 
 export function UserUnlogger() {
     const userName = useSelector((state: IStore) => state.users.user)
@@ -26,9 +27,9 @@ export function UserUnlogger() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className='btn__unlogger' variant="white" onClick={handleShow}>
                 {userName &&
-                    <div className='burger-menu__user'>
+                    <div className='menu__user'>
                         <span>{`${userName.username?.charAt(0).toUpperCase()}${userName.username?.charAt(userName.username.length - 1).toUpperCase()}`}</span>
                     </div>
                 }

@@ -33,26 +33,29 @@ export const CartList = () => {
     
   return (
     <>
-    <div className='cart-list__body'>
-        {!(cart.length) 
-            ? <div>You don't have books in your cart. Maybe you don't know how to read?</div>
-        : cartData?.map((card) => <CartItem key={card?.isbn13} title={card.title} isbn13={card?.isbn13} subtitle={card?.subtitle} price={card?.price} url={card?.url} image={card?.image} authors={card?.authors}/>)}
-    </div>
-    <div className="cart-list__order">
-            <div className="cart-list__title">Your order</div>
-            <div className="cart-list__info">
-                <div className="cart-list__total-price">
-                    {!(cart.length) 
-                        ? <span>0</span>
-                            : <span>{total.toFixed(2)}</span>} $
+    <div className="cart__list">
+        <div className='cart-list__body'>
+            {!(cart.length) 
+                ? <div>You don't have books in your cart. Maybe you don't know how to read?</div>
+            : cartData?.map((card) => <CartItem key={card?.isbn13} title={card.title} isbn13={card?.isbn13} subtitle={card?.subtitle} price={card?.price} url={card?.url} image={card?.image} authors={card?.authors}/>)}
+        </div>
+        <div className="cart-list__order">
+                <div className="cart-list__title">Your order</div>
+                <div className="cart-list__info">
+                    <div className="cart-list__total-price">
+                        Total: {!(cart.length) 
+                            ? <span>0 $</span>
+                                : <span>{total.toFixed(2)} $</span>}
+                    </div>
+                    <div className="cart-list__total-books">
+                        qt.: {!(cart.length) 
+                            ? <span>0</span>
+                                : <span>{cart.length}</span>} pc
+                    </div>
                 </div>
-                <div className="cart-list__total-books">
-                    {!(cart.length) 
-                        ? <span>0</span>
-                            : <span>{cart.length}</span>} pc
-                </div>
-            </div>
+        </div>
     </div>
+    
     </>
   )
 }

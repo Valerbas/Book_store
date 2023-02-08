@@ -20,7 +20,7 @@ export const SelectedBook = () => {
     <div className='selected-book'>
       <div className="wrapper">
         <div className="selected-book__main">
-        <Link className='select-book__link' to={'/'}><IconLeftArrow/></Link>
+        <Link className='book__link' to={'/'}><IconLeftArrow/></Link>
         {book &&  <FullPost book={book[0]}/>}
         </div>
         <Subscribe/>

@@ -1,6 +1,10 @@
 .card {
     width: 380px;
-    // изменить ширину на %
+    border: none !important;
+    margin-bottom: 40px;
+    &:nth-last-child(2){
+        margin: 0 30px;
+    }
     .card__link {
         text-decoration: none;
         width: 100%;
@@ -11,23 +15,29 @@
                 width: 100%;
                 margin-bottom: 15px;
                 text-align: center;
+                padding: 0px 50px;
                 img {
                     margin: 0 auto;
+                    width: 100%;
+                    height: auto;
                 }
             }
             .card__info {
                 width: 100%;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 text-align: left;
                 .card__title {
+                    height: 50px;
                     font-size: 24px;
                     line-height: 24px;
-                    margin-bottom: 15px;
-                    color: black;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                    color: #212529;
                     text-transform: uppercase;
                     text-decoration: none;
                 }
                 .card__subtitle {
+                    height: 50px;
                     font-size: 16px;
                     line-height: 24px;
                     color: #8D8E97;
@@ -37,6 +47,13 @@
         .card__footer {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            .card__price{
+                font-size: 24px;
+                line-height: 24px;
+                font-weight: bold;
+                color: #212529;
+            }
         }
     }
 }

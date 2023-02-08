@@ -4,8 +4,8 @@ import { calcOneBookPrice, removeCartItem } from '../../redux/actionCreators/boo
 import { IBook, IStore } from '../../redux/types'
 import { Button } from '../Button/Button'
 import { IconDelete } from '../Icon/IconDelete'
-import { IconLeftArrow } from '../Icon/IconLeftArrow'
-import { IconRightArrow } from '../Icon/IconRightArrow'
+/* import { IconLeftArrow } from '../Icon/IconLeftArrow'
+import { IconRightArrow } from '../Icon/IconRightArrow' */
 
 import './CartItem.scss'
 
@@ -19,7 +19,6 @@ export const CartItem = ({image, title, authors, price, isbn13}: ICartProps) => 
     const handleDeleteCartItem = (id: string) => [
         dispatch(removeCartItem(id))
     ]
-
     /* const [count, setCount] = useState(1)
     const onClick1 = () => setCount(count + 1)
     const onClick2 = () => setCount(count - 1)
@@ -31,30 +30,35 @@ export const CartItem = ({image, title, authors, price, isbn13}: ICartProps) => 
     }, [oneBookPrice, dispatch]) */
   return (
     <>
-    <div className='cart-item'>
+    {cart && 
+        <div className='cart-item'>
         <div className="cart-item__button">
-            <Button className='btn__remove' icon={<IconDelete color='black'/>} onClick={() => handleDeleteCartItem(isbn13)}/>
+            <Button className='btn__remove' icon={<IconDelete color='#212529'/>} onClick={() => handleDeleteCartItem(isbn13)}/>
         </div>
-        <div className="cart-item__picture">
-            <img src={image} alt={title} />
+        <div className="cart-item__main">
+            <div className="cart-item__picture">
+                <img src={image} alt={title} />
+            </div>
+            <div className="cart-item__info">
+                <div className="cart-item__title">
+                    {title}
+                </div>
+                <div className="cart-item__isbn">
+                    isbn13: {isbn13}
+                </div>
+                <div className="cart-item__price">
+                    {price}
+                </div>
+            </div>
         </div>
-        <div className="cart-item__info">
-            <div className="cart-item__title">
-                {title}
-            </div>
-            <div className="cart-item__authors">
-                {authors}
-            </div>
-            <div className="cart-item__price">
-                {price}
-            </div>
-        </div>
+        
+    </div>
+    }
         {/* <div className="cart-item__counter">
             <Button className='card__btn card__btn--like' disabled={countValue === 1 && true} icon={<IconLeftArrow className="icon__right"/>} onClick={onClick2}></Button>
                 <p>{countValue}</p>
             <Button className='card__btn card__btn--dislike' icon={<IconRightArrow className="icon__left"/>} onClick={onClick1}></Button>
         </div> */}
-    </div>
     </>
   )
 }

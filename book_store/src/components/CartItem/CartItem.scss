@@ -1,0 +1,54 @@
+.cart-item {
+    border: 5px solid rgb(192, 248, 200);
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    padding: 0 0 40px 40px;
+    margin-bottom: 30px;
+    .cart-item__button{
+        width: 100%;
+        .btn__remove{
+            display: block;
+            margin-left: auto;
+            border: none;
+            background-color: transparent;
+            margin-top: 5px;
+        }
+    }
+    .cart-item__main{
+        display: flex;
+        justify-content: space-between;
+        .cart-item__picture{
+            background-color: rgb(192, 248, 200);
+            img{
+                width: 200px;
+                height: 250px;
+            }
+        }
+        .cart-item__info{
+            width: 60%;
+            padding-right: 40px;
+            .cart-item__title{
+                font-size: 24px;
+                line-height: 24px;
+                font-weight: bold;
+                color: #212529;
+                text-transform: uppercase;
+            }
+            .cart-item__isbn{
+                margin-top: 30px;
+                font-size: 18px;
+                line-height: 20px;
+                color: #212529;
+            }
+            .cart-item__price{
+                margin-top: 50px;
+                font-size: 36px;
+                line-height: 24px;
+                font-weight: bold;
+                color: #212529;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

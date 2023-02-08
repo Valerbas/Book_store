@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import "./Card.scss"
 
 import { IBook } from '../../redux/types'
+import { Rating } from '../Rating/Rating'
 
 export interface ICard extends IBook {
 }
@@ -29,7 +30,7 @@ export const Card = ({title, subtitle, isbn13, price, image, url}: ICard) => {
                     {price}
                 </div>
                 <div className="card__rating">
-                    5/5
+                    <Rating/>
                 </div>
             </div>
         </Link>
